@@ -1,8 +1,57 @@
-# NAMIZUN
+# NAMIZUN — ⚠️ Retired / Archived
+
+> **This project is no longer maintained.**
+>
+> ## 👉 Use [**github.com/salehi/tavazon**](https://github.com/salehi/tavazon) instead.
+>
+> Everything below is kept **as an archive only**. Do not use it for new setups.
+
+---
+
+## Why Namizun is retired
+
+Namizun did its job, but it has two fundamental detection problems that make it
+easy to catch:
+
+- **Traffic "ceiling" and sharp edges at the start of each hour.**
+  The traffic pattern resets/spikes when the hour changes, producing a visible
+  step in the monitoring graphs. On tools like **PRTG**, those edges are obvious
+  to the naked eye — a NOC operator can spot the pattern just by looking at the
+  chart.
+
+- **Identical packet fingerprint.**
+  Every packet shares the same fingerprint. That repeating signature is hard
+  evidence the NOC can use to prove you are sending garbage/junk traffic.
+
+## Tavazon fixes all of this
+
+[**Tavazon**](https://github.com/salehi/tavazon) is the successor and solves
+every problem above:
+
+- ✅ **One-line install** via systemd
+- ✅ **Single static binary, under 3 MB**
+- ✅ Built-in **web panel**
+- ✅ Uses **MaxMind `.mmdb`** GeoIP databases — target by **Country**, by
+  **AS (ASN)**, or even a **single IP**
+- ✅ Panel to set the **exact amount of traffic to send over a 24-hour period**
+- ✅ **Smooth traffic distribution — no edges/spikes at hour changes**, so
+  PRTG-style monitoring can't pick it out by eye
+- ✅ **No repeating packet fingerprint**
+
+The PRTG admins are out of luck. 😎
+
+### 👉 Get started at [github.com/salehi/tavazon](https://github.com/salehi/tavazon)
+
+---
+
+## 📦 Archive — original Namizun documentation
+
+> The content below is preserved for historical reference only and is
+> **no longer maintained**.
 
 This project is used to remove the limitation of asymmetric ratio for uploading and downloading Iranian servers
 
-## Dockerized installation
+### Dockerized installation
 
 ```bash
 git clone https://github.com/salehi/namizun
@@ -11,25 +60,25 @@ docker-compose pull
 docker-compose up -d
 ```
 
-### You need menu to adjust settings?
+#### You need menu to adjust settings?
 
 ```bash
 docker-compose run --rm --entrypoint bash namizun
 python3 menu.py
 ```
 
-### You want to build docker image by yourself?
+#### You want to build docker image by yourself?
 ```bash
 docker-compose build namizun
 ```
 
-## One line installation command:
+### One line installation command:
 
 ```bash
 sudo curl https://raw.githubusercontent.com/malkemit/namizun/master/else/setup.sh | sudo bash
 ```
 
-## Manual installation
+### Manual installation
 
 **Important Note : use it on ubuntu +20 (python +3.8)**
 
@@ -95,7 +144,7 @@ sudo systemctl daemon-reload && sudo systemctl enable namizun.service && sudo sy
 ln -s /var/www/namizun/else/namizun /usr/local/bin/ && chmod +x /usr/local/bin/namizun
 ```
 
-## Update
+### Update
 
 - With the following command, you can update the script that you have already installed:
 
@@ -103,11 +152,11 @@ ln -s /var/www/namizun/else/namizun /usr/local/bin/ && chmod +x /usr/local/bin/n
 cd /var/www/namizun && git reset --hard HEAD && git pull origin master && source /var/www/namizun/venv/bin/activate && pip install namizun_core/ namizun_menu/ && deactivate && systemctl daemon-reload && chmod +x /usr/local/bin/namizun
 ```
 
-## Configuration
+### Configuration
 
 - see our tutorial : [command list in persian](https://telegra.ph/commandlist-of-namizun-12-26)
 
-## Notes:
+### Notes:
 - In this script, you don't need to buy a download host or another server or even upload to your foreign server.\
 Only fake traffic will be sent to **Iranian IPs**, which will be lost!
 
@@ -126,7 +175,7 @@ High CPU consumption will cause restrictions from the provider (it is better to 
 - If you are using a **dedicated server**, it is suggested to virtualize it and use your virtual servers.\
 In this way, your traffic will be distributed among more IPs and will prevent you from being banned.
 
-## Donate:
+### Donate:
 
 If you enjoyed this script you could donate me by donating!\
 Your support allows me to continue my work, **fight against Internet censorship in Iran**
