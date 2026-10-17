@@ -120,6 +120,13 @@ git pull origin master
 python3 -m venv /var/www/namizun/venv
 ```
 
+# تنظیم منبع آینه‌ای Tsinghua به عنوان پیش‌فرض
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
+# اگر با خطای SSL مواجه شدید، دستور زیر را اضافه کنید (معمولاً لازم نیست)
+# pip config set global.trusted-host pypi.tuna.tsinghua.edu.cn
+
+
 - 5\) Install the project requirements with pip by **setup.py** (namizun_core & namizun_menu):
 
 ```bash
