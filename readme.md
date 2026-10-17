@@ -127,6 +127,8 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 # pip config set global.trusted-host pypi.tuna.tsinghua.edu.cn
 
 
+
+
 - 5\) Install the project requirements with pip by **setup.py** (namizun_core & namizun_menu):
 
 ```bash
